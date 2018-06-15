@@ -1,5 +1,8 @@
-FogOfWarDemo/.vs/
 *.sln
-FogOfWarDemo/Binaries/
-FogOfWarDemo/Intermediate/
-FogOfWarDemo/Saved/
+
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+Intermediate/
+Saved/

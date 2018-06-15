@@ -1,0 +1,16 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{578C08C1-4862-046A-A1BD-DD85DCA94418}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "BattleGround",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
+		}
+	]
+}
