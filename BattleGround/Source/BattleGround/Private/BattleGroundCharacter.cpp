@@ -67,5 +67,17 @@ void ABattleGroundCharacter::SetupPlayerInputComponent(UInputComponent* PlayerIn
 
 	PlayerInputComponent->BindAction(TEXT("Crouch"), IE_Pressed, this, &ABattleGroundCharacter::BeginCrouch);
 	PlayerInputComponent->BindAction(TEXT("Crouch"), IE_Released, this, &ABattleGroundCharacter::EndCrouch);
+
+	PlayerInputComponent->BindAction(TEXT("Jump"), IE_Pressed, this, &ACharacter::Jump);
+}
+
+FVector ABattleGroundCharacter::GetPawnViewLocation() const
+{
+	if (CameraComp)
+	{
+		return CameraComp->GetComponentLocation();
+	}
+
+	return Super::GetPawnViewLocation();
 }
 
