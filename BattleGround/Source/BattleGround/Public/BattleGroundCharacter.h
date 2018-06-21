@@ -25,11 +25,35 @@ protected:
 	void BeginCrouch();
 	void EndCrouch();
 
+	void BeginZoom();
+	void EndZoom();
+
+	void StartFire();
+	void StopFire();
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	class UCameraComponent* CameraComp;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	class USpringArmComponent* SpringArmComp;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Player")
+	float ZoomFOV = 65.f;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Player")
+	float ZoomSpeed = 20;
+
+	float DefaultFOV;
+
+	bool bWantsZoom;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Player")
+	TSubclassOf<class ABattleGroundWeapon> StarterWeaponClass;
+
+	class ABattleGroundWeapon* CurrentWeapon;
+
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Player")
+	FName WeaponAttachSocketName;
 
 public:	
 	// Called every frame

@@ -15,11 +15,15 @@ public:
 	// Sets default values for this actor's properties
 	ABattleGroundWeapon();
 
+	void StartFire();
+	void StopFire();
+
 protected:
-	// Called when the game starts or when spawned
+
 	virtual void BeginPlay() override;
 
-	UFUNCTION(BlueprintCallable, Category = "Weapon")
+	void PlayFireEffects(const FVector& TracerEndPoint);
+
 	virtual void Fire();
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
@@ -38,15 +42,26 @@ protected:
 	class UParticleSystem* MuzzleEffect;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
-	class UParticleSystem* ImpactEffect;
+	class UParticleSystem* DefaultImpactEffect;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
+	class UParticleSystem* FleshImpactEffect;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
 	class UParticleSystem* TracerEffect;
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
+	TSubclassOf<class UCameraShake> FireCamShake;
 
-	
-	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
+	float BaseDamage = 20.f;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
+	float RateOfFire = 600.f;
+
+	FTimerHandle TimerHandle_TimeBetweenShots;
+
+	float LastFireTime = 0.f;
+
+	float TimeBetweenShots = 0.f;
 };
