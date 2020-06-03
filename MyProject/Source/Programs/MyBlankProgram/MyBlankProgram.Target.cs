@@ -13,7 +13,8 @@ public class MyBlankProgramTarget : TargetRules
 		LaunchModuleName = "MyBlankProgram";
         SolutionDirectory = "MyPrograms";
         DefaultBuildSettings = BuildSettingsVersion.V2;
-        //LinkType = TargetLinkType.Modular;
+
+        // Uncomment below to build with installed engine
         //BuildEnvironment = TargetBuildEnvironment.Shared;
 
         // Lean and mean
